@@ -1,0 +1,273 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #f4f4f4;
+    color: #222;
+    font: 1rem/1.5 "Segoe UI", Arial, sans-serif;
+}
+
+a {
+    color: inherit;
+    text-underline-offset: 0.2em;
+}
+
+:focus-visible {
+    outline: 2px solid #333;
+    outline-offset: 3px;
+}
+
+.barra {
+    background: #fff;
+    border-bottom: 1px solid #ccc;
+}
+
+.barra-conteudo,
+.conteudo {
+    width: min(56rem, calc(100% - 2rem));
+    margin-inline: auto;
+}
+
+.barra-conteudo {
+    min-height: 4.25rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding-block: 0.55rem;
+}
+
+.marca {
+    font-size: 1.2rem;
+    font-weight: 700;
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+nav,
+.sessao,
+.botoes {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+nav a {
+    padding: 0.35rem 0.55rem;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+nav a:hover,
+nav a[aria-current="page"] {
+    background: #ededed;
+}
+
+nav a[aria-current="page"] {
+    font-weight: 600;
+}
+
+.sessao {
+    margin-left: auto;
+    min-width: 0;
+    color: #4a4a4a;
+    font-size: 0.9rem;
+}
+
+.sessao span {
+    max-width: 15rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.conteudo {
+    margin-top: 2.25rem;
+    margin-bottom: 3rem;
+}
+
+.cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    margin: 0;
+    font-size: clamp(1.6rem, 3vw, 2rem);
+    line-height: 1.2;
+}
+
+.painel,
+.quadro-tabela,
+.flash {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.painel {
+    padding: 1.5rem;
+}
+
+.painel-formulario {
+    max-width: 32rem;
+}
+
+.painel-login {
+    max-width: 24rem;
+    margin: 3rem auto 0;
+}
+
+.painel p {
+    margin: 1rem 0;
+}
+
+.vazio {
+    margin: 0;
+    color: #4a4a4a;
+}
+
+.flash {
+    margin-bottom: 1rem;
+    padding: 0.7rem 1rem;
+    border-left: 4px solid #666;
+    overflow-wrap: anywhere;
+}
+
+.flash.erro {
+    border-left-color: #222;
+    font-weight: 600;
+}
+
+.campo {
+    margin-top: 1rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+}
+
+input:not([type="hidden"]) {
+    width: 100%;
+    border: 1px solid #888;
+    border-radius: 4px;
+    padding: 0.55rem 0.7rem;
+    background: #fff;
+    color: inherit;
+    font: inherit;
+}
+
+.botao {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.48rem 0.85rem;
+    border: 1px solid #333;
+    border-radius: 4px;
+    background: #333;
+    color: #fff;
+    font: inherit;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.botao:hover {
+    background: #222;
+}
+
+.botao.discreto {
+    background: #fff;
+    color: #333;
+    border-color: #999;
+}
+
+.botao.discreto:hover {
+    background: #eee;
+}
+
+.botao-entrar {
+    width: 100%;
+    margin-top: 1.25rem;
+}
+
+.botoes {
+    flex-wrap: wrap;
+    margin-top: 1.25rem;
+}
+
+.quadro-tabela {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 0.75rem 0.9rem;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+    overflow-wrap: anywhere;
+}
+
+th {
+    background: #ededed;
+    font-weight: 600;
+}
+
+tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.preco,
+.acoes {
+    text-align: right;
+    white-space: nowrap;
+}
+
+.preco {
+    font-variant-numeric: tabular-nums;
+}
+
+.acoes a + a {
+    margin-left: 0.7rem;
+}
+
+@media (max-width: 38rem) {
+    .barra-conteudo {
+        flex-wrap: wrap;
+        gap: 0.5rem 1rem;
+    }
+
+    nav {
+        order: 1;
+        flex-basis: 100%;
+    }
+
+    .sessao span {
+        display: none;
+    }
+
+    .conteudo {
+        margin-top: 1.5rem;
+    }
+
+    .painel-login {
+        margin-top: 2rem;
+    }
+
+    th,
+    td {
+        padding: 0.6rem;
+    }
+}

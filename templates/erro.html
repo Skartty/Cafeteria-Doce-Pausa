@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block titulo %}{{ titulo }}{% endblock %}
+
+{% block conteudo %}
+  <section class="painel painel-formulario" aria-labelledby="titulo-erro">
+    <h1 id="titulo-erro">{{ titulo }}</h1>
+    <p>{{ mensagem }}</p>
+    {% if session.usuario_id %}
+      <a class="botao discreto" href="{{ url_for('inicio') }}">Voltar ao cardápio</a>
+    {% else %}
+      <a class="botao discreto" href="{{ url_for('login') }}">Voltar ao login</a>
+    {% endif %}
+  </section>
+{% endblock %}

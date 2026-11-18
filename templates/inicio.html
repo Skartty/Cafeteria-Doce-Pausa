@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block titulo %}Cardápio{% endblock %}
+
+{% block conteudo %}
+  <div class="cabecalho">
+    <h1 id="titulo-cardapio">Cardápio</h1>
+  </div>
+  {% if produtos %}
+    <div class="quadro-tabela">
+      <table aria-labelledby="titulo-cardapio">
+        <thead>
+          <tr>
+            <th scope="col">Produto</th>
+            <th scope="col">Categoria</th>
+            <th scope="col" class="preco">Preço</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for produto in produtos %}
+            <tr>
+              <td>{{ produto.nome }}</td>
+              <td>{{ produto.categoria }}</td>
+              <td class="preco">{{ produto.preco | reais }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  {% else %}
+    <p class="painel vazio">Nenhum produto cadastrado no momento.</p>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block titulo %}Entrar{% endblock %}
+
+{% block conteudo %}
+  <section class="painel painel-login" aria-labelledby="titulo-login">
+    <h1 id="titulo-login">Entrar</h1>
+    <form method="post" action="{{ url_for('login') }}">
+      <input type="hidden" name="csrf_token" value="{{ token_formulario() }}">
+      <div class="campo">
+        <label for="login">Login</label>
+        <input type="text" id="login" name="login" value="{{ login_digitado }}" maxlength="50" autocomplete="username" required>
+      </div>
+      <div class="campo">
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" name="senha" autocomplete="current-password" required>
+      </div>
+      <button class="botao botao-entrar" type="submit">Entrar</button>
+    </form>
+  </section>
+{% endblock %}

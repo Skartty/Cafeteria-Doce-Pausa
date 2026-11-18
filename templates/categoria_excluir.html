@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block titulo %}Excluir categoria{% endblock %}
+
+{% block conteudo %}
+  <section class="painel painel-formulario" aria-labelledby="titulo-exclusao">
+    <h1 id="titulo-exclusao">Excluir categoria</h1>
+    <p>Confirma a exclusão de <strong>{{ categoria.nome }}</strong>?</p>
+    <form class="botoes" method="post">
+      <input type="hidden" name="csrf_token" value="{{ token_formulario() }}">
+      <button class="botao" type="submit" name="confirmar" value="sim">Confirmar exclusão</button>
+      <a class="botao discreto" href="{{ url_for('categorias') }}">Cancelar</a>
+    </form>
+  </section>
+{% endblock %}

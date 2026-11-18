@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block titulo %}Categorias{% endblock %}
+
+{% block conteudo %}
+  {% set administra = session.perfil == 'admin' %}
+  <div class="cabecalho">
+    <h1 id="titulo-categorias">Categorias</h1>
+    {% if administra %}
+      <a class="botao" href="{{ url_for('formulario_categoria') }}">Nova categoria</a>
+    {% endif %}
+  </div>
+  {% if categorias %}
+    <div class="quadro-tabela">
+      <table aria-labelledby="titulo-categorias">
+        <thead>
+          <tr>
+            <th scope="col">Nome</th>
+            {% if administra %}<th scope="col" class="acoes">Ações</th>{% endif %}
+          </tr>
+        </thead>
+        <tbody>
+          {% for categoria in categorias %}
+            <tr>
+              <td>{{ categoria.nome }}</td>
+              {% if administra %}
+                <td class="acoes">
+                  <a href="{{ url_for('formulario_categoria', categoria_id=categoria.id) }}" aria-label="Editar {{ categoria.nome }}">Editar</a>
+                  <a href="{{ url_for('excluir_categoria', categoria_id=categoria.id) }}" aria-label="Excluir {{ categoria.nome }}">Excluir</a>
+                </td>
+              {% endif %}
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  {% else %}
+    <p class="painel vazio">Nenhuma categoria cadastrada no momento.</p>
+  {% endif %}
+{% endblock %}
